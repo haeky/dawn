@@ -30,6 +30,11 @@
   <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
     <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
       <div class="js-contents">
+        <script>
+          window.addEventListener('unload', (event) => {
+            console.log("test")
+          });
+        </script>
         {%- if cart != empty -%}
           <table class="cart-items">
             <thead>
@@ -39,6 +44,7 @@
                 <th class="cart-items__heading--wide small-hide caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.quantity' | t }}</th>
                 <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
               </tr>
+          
             </thead>
 
             <tbody>
